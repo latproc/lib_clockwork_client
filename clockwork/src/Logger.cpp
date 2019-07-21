@@ -33,7 +33,7 @@ LogState* LogState::state_instance = 0;
 static std::string header;
 Logger *Logger::logger_instance = 0;
 struct timeval last_time;
-const char *program_name = "main";
+// const char *program_name = "main";
 
 int Logger::None;
 int Logger::Debug;
@@ -53,12 +53,12 @@ class Internals {
 public:
 	bool allocated;
 	std::ostream *f;
-	std::ofstream &file() { 
+	std::ofstream &file() {
 		if (!f) {
 			f = new std::ofstream;
 			allocated = true;
 		}
-		return *(std::ofstream*)f; 
+		return *(std::ofstream*)f;
 	}
 	Internals(): allocated(false), f(0) { }
 	~Internals() { /**f << std::flush;*/ if (allocated) delete f; }
@@ -85,7 +85,7 @@ std::ostream &FileLogger::f() {
 		internals->f = new std::ofstream;
 		internals->allocated = true;
 	}
-	return internals->file(); 
+	return internals->file();
 }
 
 FileLogger::~FileLogger() { delete internals;  lock.unlock();}
@@ -143,7 +143,7 @@ bool LogState::includes(int flag_num) {
 std::ostream&Logger::log(Level l){
     boost::mutex::scoped_lock lock(mutex_);
 	if (!dummy_output) dummy_output = new std::stringstream;
-	
+
     if(LogState::instance()->includes(l)){
 			char buf[50];
 			getTimeString(buf, 50);
