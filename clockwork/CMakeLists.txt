@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 2.80)
-add_subdirectory(ext)
 
 set(exe_name "Clockwork")
 SET(BUILD_SHARED_LIBS ON)
