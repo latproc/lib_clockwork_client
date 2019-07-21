@@ -32,9 +32,9 @@ if (MINGW_BUILD)
 endif ()
 
 
-#################################
-##      make the library       ##
-#################################
+##################################
+#          Build Binary          #
+##################################
 
 FILE(GLOB_RECURSE source_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.c*
@@ -48,26 +48,16 @@ add_library(${exe_name}
     ${source_files}
     ${header_files}
 )
+# add_executable(${exe_name} ${source_files} ${header_files})
+# add_test(${exe_name} ${exe_name})
 
 target_link_libraries(${exe_name}
     ${LIBRARY}
 )
-set (CMAKE_CXX_FLAGS "-std=c++11 ")
-
-
-#################################
-##    sort out include files   ##
-#################################
-set(${exe_name}_INCLUDE_DIRS
+target_include_directories(${exe_name}
+    PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${INCLUDE}
-)
-
-set_property(GLOBAL PROPERTY ${exe_name}_INCLUDE_DIRS
-    ${${exe_name}_INCLUDE_DIRS}
-)
-include_directories(
-    ${${exe_name}_INCLUDE_DIRS}
 )
 
 if (MINGW_BUILD)
