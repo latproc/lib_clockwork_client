@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.80)
 
-set(exe_name "Clockwork")
+set(exe_name "clockwork_client")
 SET(BUILD_SHARED_LIBS ON)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
 
@@ -43,7 +43,11 @@ FILE(GLOB_RECURSE header_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h*
 )
 
-add_library(${exe_name} ${source_files} ${header_files})
+add_library(${exe_name}
+    STATIC
+    ${source_files}
+    ${header_files}
+)
 
 target_link_libraries(${exe_name}
     ${LIBRARY}
