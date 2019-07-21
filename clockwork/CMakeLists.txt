@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 2.80)
 
 set(exe_name "clockwork_client")
-SET(BUILD_SHARED_LIBS ON)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
 
 if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/LocalCMakeLists.txt")
