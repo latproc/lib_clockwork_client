@@ -28,7 +28,7 @@ if (MINGW_BUILD)
     list(APPEND LIBRARY
         ws2_32
     )
-endif ()
+endif()
 
 
 ##################################
