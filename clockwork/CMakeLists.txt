@@ -42,6 +42,8 @@ FILE(GLOB_RECURSE header_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h*
 )
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
 add_library(${exe_name}
     STATIC
     ${source_files}
@@ -49,7 +51,6 @@ add_library(${exe_name}
 )
 # add_executable(${exe_name} ${source_files} ${header_files})
 # add_test(${exe_name} ${exe_name})
-
 target_link_libraries(${exe_name}
     ${LIBRARY}
 )
