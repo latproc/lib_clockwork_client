@@ -1,12 +1,12 @@
-#include "dru_zmq_hpp_dep.hpp"
+#include "cw_zmq_dep.hpp"
 
 namespace dru
 {
-    namespace cppz
+    namespace zmq_dep
     {
         void empty()
         {
-            
+
         }
     }
 }

@@ -23,18 +23,8 @@ else()
         message(FATAL_ERROR "## Not Found -  BOOST")
     endif (Boost_FOUND)
 endif()
-# if (APPLE)
-#     #
-# endif ()
-#
-if("${CMAKE_SYSTEM}" MATCHES "Linux")
-    # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
-    list(APPEND LIBRARY pthread)
-endif ()
-#
-# if (WINDOWS)
-#     #
-# endif ()
+
+list(APPEND LIBRARY pthread)
 
 
 ##################################
