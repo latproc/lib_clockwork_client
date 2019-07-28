@@ -7,7 +7,7 @@ class RateLimiter {
 public:
 	enum BackOffAlgorithm { boaNone, boaStep, boaGeometric };
 	RateLimiter();
-	RateLimiter(int msec, BackOffAlgorithm boa);
+	RateLimiter(int msec, BackOffAlgorithm boa = boaNone);
 
 	bool ready();
 	void reset() { delay = start_delay; }

@@ -5,7 +5,7 @@
 #include <ctime>
 #include <chrono>
 
-RateLimiter::RateLimiter() : back_off(boaGeometric),
+RateLimiter::RateLimiter() : back_off(boaNone),
   delay(std::chrono::microseconds(100000)),
   start_delay(std::chrono::microseconds(100000)),
   last(std::chrono::system_clock::now()),
