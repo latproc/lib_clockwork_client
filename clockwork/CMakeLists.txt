@@ -12,9 +12,6 @@ endif()
 #################################
 
 set(INCLUDE
-    ${ZMQ-Dep_INCLUDE_DIRS}
-    ${Boost-Dep_INCLUDE_DIRS}
-    ${Curl-Dep_INCLUDE_DIRS}
     ${INCLUDE}
 )
 set(LIBRARY
