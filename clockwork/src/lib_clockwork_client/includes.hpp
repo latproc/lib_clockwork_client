@@ -1,0 +1,21 @@
+#include <cw_boost_dep.hpp>
+#include <cw_curl_dep.hpp>
+#include <cw_zmq_dep.hpp>
+
+#include "helpers/includes.hpp"
+#include "CommandManager.h"
+#include "ConnectionManager.h"
+#include "DebugExtra.h"
+#include "Logger.h"
+#include "MessageEncoding.h"
+#include "Message.h"
+#include "MessageHeader.h"
+#include "MessageLog.h"
+#include "MessagingInterface.h"
+#include "rate.h"
+#include "regular_expressions.h"
+#include "SocketMonitor.h"
+#include "symboltable.h"
+#include "value.h"
+#include "watchdog.h"
+#include "Win32Helper.h"
