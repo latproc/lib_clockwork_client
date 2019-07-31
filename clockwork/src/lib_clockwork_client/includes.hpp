@@ -18,4 +18,8 @@
 #include "symboltable.h"
 #include "value.h"
 #include "watchdog.h"
-#include "Win32Helper.h"
+#ifdef _WIN32
+    #include "Win32Helper.h"
+#else
+    #include <mutex>
+#endif
