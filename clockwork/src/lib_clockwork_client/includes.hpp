@@ -23,3 +23,6 @@
 #else
     #include <mutex>
 #endif
+#ifndef RECURSIVE_LOCK
+#define RECURSIVE_LOCK std::lock_guard<std::recursive_mutex>
+#endif
