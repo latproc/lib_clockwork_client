@@ -20,7 +20,8 @@
 
 #include <string>
 #include <string.h>
-#include "cJSON.h"
+#include "includes.hpp"
+
 #include "MessageEncoding.h"
 #include "value.h"
 #include "symboltable.h"

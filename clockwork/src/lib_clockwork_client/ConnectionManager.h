@@ -31,7 +31,7 @@
 #include "Message.h"
 #include "value.h"
 #include "symboltable.h"
-#include "cJSON.h"
+#include "helpers/includes.hpp"
 #include "rate.h"
 
 #include "MessageEncoding.h"

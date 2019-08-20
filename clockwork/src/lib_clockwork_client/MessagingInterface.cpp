@@ -30,12 +30,11 @@
 #include <boost/random.hpp>
 #include "Logger.h"
 #include "DebugExtra.h"
-#include "cJSON.h"
+#include "includes.hpp"
 #ifdef DYNAMIC_VALUES
-#include "dynamic_value.h"
+    #include "dynamic_value.h"
 #endif
 #include "symboltable.h"
-#include "anet.h"
 #include "MessageLog.h"
 
 #if __MINGW32__
@@ -204,7 +203,7 @@ bool safeRecv(zmq::socket_t &sock, char **buf, size_t *response_len, bool block,
 							if (got_address) {
 								{FileLogger fl(program_name); fl.f() << tnam << " received 	addressed message " << header << " " << (*buf) << "\n"; }
 							}
-							else 
+							else
 								{FileLogger fl(program_name); fl.f() << tnam << " received: " << *buf << "\n"; }
 						}
 #endif
@@ -279,7 +278,7 @@ bool safeRecv(zmq::socket_t &sock, char *buf, int buflen, bool block, size_t &re
 		}
 		catch (const zmq::error_t &e) {
 			{
-				FileLogger fl(program_name); 
+				FileLogger fl(program_name);
 				fl.f() << tnam << " safeRecv error " << errno << " " << zmq_strerror(errno) << "\n";
 			}
 			if (--retries == 0) {
@@ -373,7 +372,7 @@ void safeSend(zmq::socket_t &sock, const char *buf, size_t buflen) {
 		catch (const zmq::error_t &error) {
 			if (zmq_errno() != EINTR && zmq_errno() != EAGAIN) {
 				{
-					FileLogger fl(program_name); 
+					FileLogger fl(program_name);
 					fl.f()  << tnam << " safeSend error " << errno << " " << zmq_strerror(errno) << "\n";
 				}
 				if (zmq_errno() == EFSM || STATE_ERROR == zmq_strerror(errno)) {
@@ -576,7 +575,7 @@ void MessagingInterface::connect() {
 	if (protocol == eCLOCKWORK || protocol == eZMQ || protocol == eCHANNEL) {
 #ifndef _WIN32
 		if (pthread_equal(owner_thread, pthread_self())) {
-			FileLogger fl(program_name); fl.f() << hostname<<":"<<port 
+			FileLogger fl(program_name); fl.f() << hostname<<":"<<port
 				<<" attempt to call socket connect from a thread that isn't the owner\n";
 		  // return; // no longer returning here, we have some evidence this is not a good test. TBD
 		}
@@ -688,11 +687,11 @@ char *MessagingInterface::send(const char *txt) {
 			    continue;
 		    }
 		    if (zmq_errno()) {
-			    FileLogger fl(program_name); fl.f() 
+			    FileLogger fl(program_name); fl.f()
 				    << "Exception when sending " << url << ": " << zmq_strerror(zmq_errno()) << "\n";
 		    }
 		    else {
-			    FileLogger fl(program_name); fl.f() 
+			    FileLogger fl(program_name); fl.f()
 				    << "Exception when sending " << url << ": " << e.what() << "\n";
 		    }
 		    /*			socket->disconnect(url.c_str());

@@ -26,14 +26,13 @@
 #include <math.h>
 #include <zmq.hpp>
 #include <map>
+#include "includes.hpp"
 #include "Logger.h"
 #include "DebugExtra.h"
-#include "cJSON.h"
 #ifdef DYNAMIC_VALUES
 #include "dynamic_value.h"
 #endif
 #include "symboltable.h"
-#include "anet.h"
 #include "MessageLog.h"
 
 #include "MessageEncoding.h"
