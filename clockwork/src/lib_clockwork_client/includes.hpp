@@ -1,3 +1,12 @@
+#include <assert.h>
+#include <iostream>
+#include <ostream>
+#include <string>
+#include <list>
+#include <sys/time.h>
+#include <queue>
+#include <vector>
+
 #include <cw_boost_dep.hpp>
 #include <cw_curl_dep.hpp>
 #include <cw_zmq_dep.hpp>
