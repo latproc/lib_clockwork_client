@@ -74,7 +74,7 @@ public:
   Value(DynamicValueBase *dv);
   Value(DynamicValueBase &dv);
   virtual ~Value();
-  std::string asString() const;
+  std::string asString(const char *format = 0) const;
   std::string quoted() const;
   bool asFloat(double &val) const;
   bool asInteger(long &val) const;
