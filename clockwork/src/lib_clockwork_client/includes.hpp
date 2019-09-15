@@ -24,6 +24,7 @@
 #include "rate.h"
 #include "regular_expressions.h"
 #include "SocketMonitor.h"
+#include "PersistentStore.h"
 #include "symboltable.h"
 #include "value.h"
 #include "watchdog.h"

@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 2.80)
 set(exe_name "clockwork_client")
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
 
-if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/LocalCMakeLists.txt")
-    include("${CMAKE_CURRENT_SOURCE_DIR}/LocalCMakeLists.txt")
+if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/LocalCMakeLists.cmake")
+    include("${CMAKE_CURRENT_SOURCE_DIR}/LocalCMakeLists.cmake")
 endif()
 
 #################################
@@ -46,8 +46,6 @@ add_library(${exe_name}
     ${source_files}
     ${header_files}
 )
-# add_executable(${exe_name} ${source_files} ${header_files})
-# add_test(${exe_name} ${exe_name})
 target_link_libraries(${exe_name}
     ${LIBRARY}
 )
@@ -56,6 +54,11 @@ target_include_directories(${exe_name}
     ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${INCLUDE}
 )
+
+if (RUN_TESTS)
+    enable_testing()
+    add_subdirectory(tests)
+endif()
 
 if (MINGW_BUILD)
 else()
