@@ -42,8 +42,7 @@ std::string constructAlphaNumericString(const char *prefix, const char *val, con
 class CommunicationPoll {
 public:
 	CommunicationPoll *instance() {
-		if (!instance_)
-        {
+		if (!instance_) {
             instance_ = new CommunicationPoll;
         }
         return instance_;
