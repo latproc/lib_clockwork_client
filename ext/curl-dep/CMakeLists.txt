@@ -12,7 +12,7 @@ if (MINGW_BUILD)
     )
 else()
     list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
-    FIND_PACKAGE(Curl REQUIRED)
+    FIND_PACKAGE(CURL REQUIRED)
     #   CURL_INCLUDE_DIRS   - where to find curl/curl.h, etc.
     #   CURL_LIBRARIES      - List of libraries when using curl.
     #   CURL_FOUND          - True if curl found.
